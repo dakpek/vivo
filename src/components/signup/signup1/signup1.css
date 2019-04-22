@@ -1,0 +1,58 @@
+.signUp1 {
+    width: 100%;
+    height: 100%
+
+}
+
+.signUp-hello {
+    font-family: "Futura";
+    font-size: 2em;
+    margin-left: 11%;
+    margin-top: 40%;
+    width: 78%;
+}
+
+.signUp-hello2 {
+    font-family: "Futura";
+    font-size: 1em;
+    margin: 5%;
+    width: 80%;
+    text-align: center;
+    margin-left: 10%;
+    color: rgb(150, 150, 150);
+}
+
+.signUp1-form {
+    width: 70%;
+    margin: 15%;
+}
+.signUp1-input {
+    width: 60vw;
+    height: 2vh;
+    padding: 3%;
+    margin: 3%;
+    font-size: 1.2em;
+    font-family: "Futura";
+    font-color: black;
+    border: 0px;
+    border-bottom: solid 1px;
+    border-color: rgb(112, 62, 188);
+}
+
+.signUp1-input:focus {
+    border: 0px;
+    border-bottom: solid 3px;
+    border-color: rgb(112, 62, 188);
+    outline: none;
+}
+
+.signUp1-submit {
+    width: 60vw;
+    height: 7vh;
+    margin-top: 5%;
+    margin: 5%;
+    font-size: 1.5em;
+    font-family: "Futura";
+    color: rgb(112, 62, 188);
+    font-weight: bold;
+}

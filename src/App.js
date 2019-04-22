@@ -1,25 +1,30 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Homescreen from './components/homescreen/homescreen';
+import * as firebase from 'firebase';
 
 class App extends Component {
+
+  
+
+  componentWillMount() {
+    let firebaseConfig = {
+      apiKey: "AIzaSyCHcfez2Dc4UHn9611joddAaEdemkLo4MQ",
+      authDomain: "vivo-b3f86.firebaseapp.com",
+      databaseURL: "https://vivo-b3f86.firebaseio.com",
+      projectId: "vivo-b3f86",
+      storageBucket: "vivo-b3f86.appspot.com",
+      messagingSenderId: "72620720352"
+    };
+    
+    if (firebase.apps.length === 0) firebase.initializeApp(firebaseConfig)
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Homescreen/>
       </div>
     );
   }

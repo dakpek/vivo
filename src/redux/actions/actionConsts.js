@@ -1,0 +1,19 @@
+export const actionConstants = {
+    
+    // STARTED
+    SIGN_IN_STARTED: 'SIGN_IN_STARTED',
+    SIGN_UP_STARTED: 'SIGN_UP_STARTED',
+    
+    // ERROR
+    SIGN_IN_ERROR: 'SIGN_IN_ERROR',
+    SIGN_UP_ERROR: 'SIGN_UP_ERROR',
+    
+    // SUCCESS
+    SIGN_IN_SUCCESS: 'SIGN_IN_SUCCESS',
+    SIGN_UP_SUCCESS: 'SIGN_UP_SUCCESS',
+    
+
+
+
+
+};
