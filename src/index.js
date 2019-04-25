@@ -10,12 +10,14 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
 import SignUp from './components/signup'
+import Contact from './components/contact'
 
 ReactDOM.render((
 <BrowserRouter>
     <div>
         <Route exact path = '/uyeol' component={SignUp} />
         <Route exact path = '/' component={App} />
+        <Route exact path = '/iletisim' component={Contact} />
     </div>
 </BrowserRouter>
 ), document.getElementById('root')

@@ -4,7 +4,7 @@
 
 }
 
-.signUp-hello {
+.signUp1-hello {
     font-family: "Futura";
     font-size: 2em;
     margin-left: 11%;
@@ -12,25 +12,31 @@
     width: 78%;
 }
 
-.signUp-hello2 {
+.signUp1-hello2 {
     font-family: "Futura";
-    font-size: 1em;
-    margin: 5%;
+    font-size: 1.3em;
     width: 80%;
+    margin-top: 5%;
     text-align: center;
     margin-left: 10%;
     color: rgb(150, 150, 150);
 }
 
 .signUp1-form {
-    width: 70%;
-    margin: 15%;
+    max-width: 100vw;
+    margin: 10%;
+    margin-top: 18%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
 }
 .signUp1-input {
-    width: 60vw;
+    width: 70vw;
     height: 2vh;
     padding: 3%;
-    margin: 3%;
+    margin-top: 12%;
     font-size: 1.2em;
     font-family: "Futura";
     font-color: black;
@@ -48,11 +54,29 @@
 
 .signUp1-submit {
     width: 60vw;
+    background-color: rgba(112, 62, 188, 0.2);
+    border-radius: 10px;
     height: 7vh;
-    margin-top: 5%;
     margin: 5%;
+    margin-top: 30%;
     font-size: 1.5em;
     font-family: "Futura";
     color: rgb(112, 62, 188);
     font-weight: bold;
+}
+
+.signUp1-submit:active {
+    background-color: rgba(112, 62, 188, 0.5);
+}
+
+.signUp1-goBack {
+    /* width: 60vw; */
+    height: 7vh;
+    margin-top: 5%;
+    /* margin-left: 40%; */
+    font-size: 1.3em;
+    font-family: "Futura";
+    color: rgb(112, 62, 188);
+    opacity: 0.6;
+    text-decoration: none;
 }

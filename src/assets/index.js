@@ -1,0 +1,5 @@
+export { default as extra } from './extra.png'
+export { default as normal } from './normal.png'
+export { default as logo } from './logo.png'
+export { default as loader } from './loader.gif'
+export { default as heart } from './heart.gif'

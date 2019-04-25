@@ -15,13 +15,14 @@ export default class SignInModal extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
+        console.log('tis starting')
         let {email, password} = this.state
-        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-            // Handle Errors here.
-            let errorCode = error.code;
-            let errorMessage = error.message;
-            console.log('signedIn', firebase.auth().currentUser)
-            console.log(error)
+        firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((res) => {
+            console.log('hello: ', res)
+        })
+        .catch((err) => {
+            console.log(err)
           });
       }
 

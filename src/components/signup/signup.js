@@ -96,9 +96,9 @@ export default class SignUp extends Component {
         });
       }
     
-    handleType = (event) => {
+    handleType = (data) => {
         this.setState({
-            type: event.target.id
+            type: data
         })
         console.log(this.state.type)
     }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import * as firebase from 'firebase';
 import './signup1.css'
 
@@ -8,9 +9,9 @@ export default class SignUp1 extends Component {
 
         return (
             <div className="signUp1">
-                <div className="signUp-hello">Aramiza hosgeldin!</div>
-                <div className="signUp-hello2">bize kendin hakkinda biraz bahsedermisin?</div>
-                <form className="signUp1-form" onSubmit={this.props.createUser}>
+                <div className="signUp1-hello">Aramiza hosgeldin!</div>
+                <div className="signUp1-hello2">hemen sana bir uyelik olusturalim</div>
+                <form className="signUp1-form" onSubmit={this.props.createUser}>  
                     <input
                         className={"signUp1-input"}
                         type='email'
@@ -30,8 +31,11 @@ export default class SignUp1 extends Component {
                         className="signUp1-submit">
                         Uyelik Olustur
                         </button>
+                        <Link to='/' className='signUp1-goBack'>Geri</Link>
                 </form>
             </div>
         )
     }
 }
+
+// Error caseler girilecek

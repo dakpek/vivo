@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import Homescreen from './components/homescreen/homescreen';
 import * as firebase from 'firebase';
+import Mainpage from './components/mainPage'
+import Contact from './components/contact'
 
 class App extends Component {
 
@@ -24,7 +26,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Homescreen/>
+        <Mainpage/>
+        {/* <Contact/> */}
+        {/* <Homescreen/> */}
       </div>
     );
   }

@@ -48,8 +48,11 @@ export default class SignUp4 extends Component {
     render() {
             return (
                 <div className="signUp4">
-                <div className="signUp-hello2">son olarak, nereye ve ne zaman yollayacagimizi bilelim</div>
+                <div className="signUp4-hello">... Son Olarak</div>
+                <div className="signUp4-hello2">nereye ve ne zaman yollayacagimizi bilelim</div>
                 <form className="signUp4-form" onSubmit={this.writeData}>
+                    <div className="signUp4-inputExplanation">Adres</div>
+                    <div className="signUp4-address">
                     <input
                         className={"signUp4-input"}
                         type='string'
@@ -90,25 +93,32 @@ export default class SignUp4 extends Component {
                         onChange={this.handleChange}
                         placeholder='Post Kodu'/>
                         <br/>
-                    <div className="signUp-dayBy">
+                    </div>
+                    <div className="signUp4-inputExplanation">
                     Ayin kacinci gununde postani almak istersin?
                     </div>                   
                     <input
-                        className={"signUp4-input"}
+                        className={"signUp4-inputDayBy"}
                         type='number'
                         name='packageBy'
                         value={this.state.packageBy}
                         onChange={this.handleChange}
                         placeholder='ornek: 7'/>
                         <br/>
-                        <button                                      
-                        type='submit'
-                        className="signUp2-submit">
-                        Odemeye Gec
-                        </button>
-                      
+                            <button                                      
+                            type='submit'
+                            className="signUp4-submit">
+                            Odemeye Gec
+                            </button>
+                            <button
+                            onClick={this.props.pageBackward}                                     
+                            className="signUp4-goBack">
+                            Geri Git
+                            </button>
                 </form>
             </div>
             )
         }
 }
+
+// errors
