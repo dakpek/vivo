@@ -1,26 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route } from 'react-router-dom';
 import './index.css';
-import App from './App';
+import App from './App.js';
 import * as serviceWorker from './serviceWorker';
-import { createStore, applyMiddleware } from 'redux';
-import { Provider } from 'react-redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import thunk from 'redux-thunk';
+import Firebase, { FirebaseContext } from './components/Firebase';
 
-import SignUp from './components/signup'
-import Contact from './components/contact'
 
-ReactDOM.render((
-<BrowserRouter>
-    <div>
-        <Route exact path = '/uyeol' component={SignUp} />
-        <Route exact path = '/' component={App} />
-        <Route exact path = '/iletisim' component={Contact} />
-    </div>
-</BrowserRouter>
-), document.getElementById('root')
+
+
+ReactDOM.render(
+    (<FirebaseContext.Provider value={new Firebase()}>
+       <App />
+     </FirebaseContext.Provider>)
+, document.getElementById('root')
 );
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

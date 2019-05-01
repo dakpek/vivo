@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
-import * as firebase from 'firebase';
+import { withFirebase } from '../Firebase';
 import './signup.css'
+import * as firebase from 'firebase';
 import SignUp1 from './signup1';
 import SignUp2 from './signup2';
 import SignUp3 from './signup3';
 import SignUp4 from './signup4';
 
-export default class SignUp extends Component {
+
+
+
+class SignUpBase extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            page: 4,
+            page: 1,
             error: "",
 
             email: "",
             password: "",
+            phoneNumber: "",
             uid: "",
             firstName: "",
             lastName: "",
@@ -25,22 +30,6 @@ export default class SignUp extends Component {
         }
         
     }
-
-    // initialize firebase again just in case
-    componentWillMount() {
-        let firebaseConfig = {
-            apiKey: "AIzaSyCHcfez2Dc4UHn9611joddAaEdemkLo4MQ",
-            authDomain: "vivo-b3f86.firebaseapp.com",
-            databaseURL: "https://vivo-b3f86.firebaseio.com",
-            projectId: "vivo-b3f86",
-            storageBucket: "vivo-b3f86.appspot.com",
-            messagingSenderId: "72620720352"
-            };
-
-        if (firebase.apps.length === 0) firebase.initializeApp(firebaseConfig)
-           
-        }
-
 
 
     // page forward & backward
@@ -66,7 +55,7 @@ export default class SignUp extends Component {
         delete data.uid;
         delete data.error;
         delete data.page;
-        firebase.database().ref('users/' + uid).set(data)
+        this.props.firebase.setUser(uid, data)
         .then(() => {
             this.pageForward()
         })
@@ -75,7 +64,7 @@ export default class SignUp extends Component {
     createUser = (event) => {
         event.preventDefault()
         let {email, password} = this.state
-        firebase.auth().createUserWithEmailAndPassword(email, password)
+        this.props.firebase.doCreateUserWithEmailAndPassword(email, password)
         .then((user) => {
             this.setState({uid: user.user.uid})
             console.log('user created')
@@ -142,3 +131,16 @@ export default class SignUp extends Component {
         )
     }
 }
+
+
+
+//firebase stuff
+
+const SignUp = () => (
+    <div>
+        <SignUpPage />
+    </div>
+)
+
+const SignUpPage = withFirebase(SignUpBase)
+export default SignUp;

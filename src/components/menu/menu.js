@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import * as firebase from 'firebase';
+import { withFirebase } from '../Firebase';
 import './menu.css';
 import { Menu } from 'grommet-icons'
+import Profile from '../settings/profile';
 
 export default class SideMenu extends Component {
     constructor(props) {
@@ -11,10 +12,6 @@ export default class SideMenu extends Component {
             menuOpen: false,
             settingsOpen: false
         }
-    }
-
-    signOut = () => {
-        firebase.auth.signOut()
     }
 
     toggleMenu = () => {
@@ -38,22 +35,24 @@ export default class SideMenu extends Component {
                     className="menuIcon"/>
                     <div className="menuRows">
                         <Link
-                        to='/home'
+                        to='/'
                         className="menuRow">Ana Sayfa</Link>
                         <div
                         onClick={this.toggleSettings} 
                         id="settings"
                         className="menuRow">Ayarlar</div>
-                        <div 
+                        <Link 
+                        to='/paketim'
                         style={{
                             "display": this.state.settingsOpen ? "block" : "none"
                         }}
-                        className="menuSubRow">Paket Degistir</div>
-                        <div 
+                        className="menuSubRow">Paket Degistir</Link>
+                        <Link
+                        to='/bilgilerim'
                         style={{
                             "display": this.state.settingsOpen ? "block" : "none"
                         }}
-                        className="menuSubRow">Bilgilerini Guncelle</div>
+                        className="menuSubRow">Bilgilerini Guncelle</Link>
                         <div 
                         style={{
                             "display": this.state.settingsOpen ? "block" : "none"
@@ -68,13 +67,23 @@ export default class SideMenu extends Component {
                         <div className="menuRow">Policemiz</div>
                         <div className="XmenuRow">Viva Inc.</div>
                         <div className="XmenuRow">Bagislarin</div>
-                        <Link
-                        to='/'
-                        onClick={this.signOut}
-                        className="menuRow">Cikis Yap</Link>
+                        <SignOutButton/>
                     </div>
                 </div>
             )
         }
     }
 }
+
+
+
+
+const SignOutButton = withFirebase( ({ firebase }) => (
+  <Link 
+  to='/'
+  className="menuRow"
+  type="button" 
+  onClick={firebase.doSignOut}>
+    Cikis Yap
+  </Link>
+));

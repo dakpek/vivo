@@ -1,37 +1,26 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Homescreen from './components/homescreen/homescreen';
-import * as firebase from 'firebase';
-import Mainpage from './components/mainPage'
+import { BrowserRouter, Route } from 'react-router-dom';
+import { withAuthentication } from './components/Session';
+import Homescreen from './components/homescreen'
+import SignIn from './components/signIn'
+import SignUp from './components/signup'
 import Contact from './components/contact'
+import Package from './components/settings/package'
 
-class App extends Component {
-
+const App = () => (
   
-
-  componentWillMount() {
-    let firebaseConfig = {
-      apiKey: "AIzaSyCHcfez2Dc4UHn9611joddAaEdemkLo4MQ",
-      authDomain: "vivo-b3f86.firebaseapp.com",
-      databaseURL: "https://vivo-b3f86.firebaseio.com",
-      projectId: "vivo-b3f86",
-      storageBucket: "vivo-b3f86.appspot.com",
-      messagingSenderId: "72620720352"
-    };
-    
-    if (firebase.apps.length === 0) firebase.initializeApp(firebaseConfig)
-  }
-
-  render() {
-    return (
+    <BrowserRouter>
       <div className="App">
-        <Mainpage/>
-        {/* <Contact/> */}
-        {/* <Homescreen/> */}
+            <Route exact path = '/' component={Homescreen} />
+            <Route exact path = '/uyeol' component={SignUp} />
+            <Route exact path = '/girisyap' component={SignIn} />
+            <Route exact path = '/iletisim' component={Contact} />
+            <Route exact path = '/paketim' component={Package} />
       </div>
-    );
-  }
-}
+    </BrowserRouter>
 
-export default App;
+)
+  
+export default withAuthentication(App)

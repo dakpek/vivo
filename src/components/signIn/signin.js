@@ -1,30 +1,43 @@
 import React, { Component } from 'react';
 import './signin.css'
-import * as firebase from 'firebase';
+
+import { withRouter } from 'react-router-dom';
+import { compose } from 'recompose';
+
+import { withFirebase } from '../Firebase';
 
 
-export default class SignInModal extends Component {
+
+const SignInPage = () => (
+    <div>
+        <SignIn />
+    </div>
+)
+class SignInBase extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
             email: "",
-            password: ""
+            password: "",
+            error: ""
         }
     }
 
+
+
     handleSubmit = (event) => {
         event.preventDefault()
-        console.log('tis starting')
-        let {email, password} = this.state
-        firebase.auth().signInWithEmailAndPassword(email, password)
-        .then((res) => {
-            console.log('hello: ', res)
-        })
-        .catch((err) => {
-            console.log(err)
-          });
-      }
+        const { email, password } = this.state;
+        this.props.firebase.doSignInWithEmailAndPassword(email, password)
+            .then(res => {
+                // LOADER
+                this.props.history.push('/');
+            })
+            .catch(error => {
+                this.setState({ error });
+            });
+    }
 
     handleChange = (event) => {
         this.setState({
@@ -32,7 +45,14 @@ export default class SignInModal extends Component {
         });
       }
 
+
+
     render() {
+
+        const { email, password, error } = this.state;
+        const isInvalid = password === '' || email === '';
+
+
         return (
 
             <div className="signIn-modal">
@@ -40,7 +60,7 @@ export default class SignInModal extends Component {
                     <div className="signIn-hello">hosgeldiniz</div> 
                     <input
                         className={"signIn-input"}
-                        value={this.state.email}
+                        value={email}
                         type='email'
                         name='email'
                         onChange={this.handleChange}
@@ -48,13 +68,14 @@ export default class SignInModal extends Component {
                         <br/>
                     <input
                         className={"signIn-input"}
-                        value={this.state.password}
+                        value={password}
                         type='password'
                         name='password'
                         onChange={this.handleChange}
                         placeholder='sifre'/>
                         <br/>
-                        <button                                      
+                        <button
+                        disabled={isInvalid}                                      
                         type='submit'
                         className="sign-in-submit">
                         giris yap
@@ -66,3 +87,11 @@ export default class SignInModal extends Component {
         )
     }
 }
+
+const SignIn = compose(
+    withRouter,
+    withFirebase,
+    )(SignInBase);
+
+
+export default SignInPage;

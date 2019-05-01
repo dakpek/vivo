@@ -3,35 +3,69 @@ import { Link } from 'react-router-dom';
 import './homescreen.css';
 import logo from '../../assets/logo.png';
 import SignIn from '../signIn'
+import * as firebase from 'firebase'
+import Mainpage from '../mainPage';
+import { withFirebase } from '../Firebase';
+import { withAuthentication } from '../Session'
+import { withAuthorization } from '../Session'
+import { compose } from 'recompose';
 
-export default class Homepage extends Component {
+class HomepageBase extends Component {
     
 
     constructor(props) {
         super(props);
         this.state = {
           signIn: false,
+          loading: false,
+          uid: "",
+          user: {},
         }
       }
     
+    
+
     // opens the signIn modal
     openSignIn = () => {
         this.setState({signIn: !this.state.signIn})
     }
 
+    fetchUser = () => {
+        firebase.database().ref('/users/' + this.state.uid).once('value')
+            .then((res) => {
+                let user = res.val()
+                user.firstName = this.nameConvert(user.firstName)
+                user.lastName = this.nameConvert(user.lastName)
+                this.setState({user, 'loading': false})
+                console.log(this.state.user)       
+            })
+    }
+
+    signOut = () => {
+        firebase.auth.signOut().then(() =>{
+            this.setState({uid: "", user: {}})
+        })
+        console.log(firebase.auth().currentUser)
+    }
+
+    // MOVE TO SIGN UP SECTION
+    nameConvert = (name) => {
+        let lowerName = name.toLowerCase();
+        let firstLetter = name.substring(0,1)
+        firstLetter = firstLetter.toUpperCase();
+        let rest = name.substring(1,name.length)
+        let res = firstLetter + rest;
+        return res
+    }
 
 
     render() {
+
+        if (this.props.firebase.auth.currentUser) return <Mainpage />
+        
         return (
             <div className="entireContainer">
-            <div className="signIn">{this.state.signIn && <SignIn/>}</div>
-            <div 
-            className="SignInContainer"
-            style={{
-                "background-color": "rgb(0,0,0)",
-                "opacity": this.state.signIn ? 0.4 : 0
-            }}
-            >
+            <div className="SignInContainer">
             </div>
             <div className="homepageContainer">
             <div className="homepageHeader">
@@ -48,7 +82,7 @@ export default class Homepage extends Component {
                 </div>
                 <div className="homepageButtons">
                     <Link to="/uyeol" className="homepageSignup">Uye Ol</Link>
-                    <button className="homepageSignin" onClick={this.openSignIn}>Giris Yap</button>
+                    <Link to="/girisyap" className="homepageSignin">Giris Yap</Link>
                 </div>
                 
                 </div>
@@ -200,3 +234,15 @@ export default class Homepage extends Component {
 
 
 }
+
+// firebase stuff
+
+const HomepageFirebase = withAuthentication(HomepageBase)
+
+const Homepage = () => (
+    <div>
+        <HomepageFirebase/>
+    </div>
+)
+
+export default Homepage;

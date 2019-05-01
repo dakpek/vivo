@@ -3,17 +3,18 @@ import * as firebase from 'firebase';
 import { Meter } from 'grommet';
 import * as moment from 'moment';
 import './mainPage.css'
+import { withAuthorization } from '../Session';
 import SideMenu from '../menu'
 import { loader } from '../../assets'
+import Homepage from '../homescreen/homescreen';
 
-
-export default class Mainpage extends Component {
+class Mainpage extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
             loading: true,
-            uid: "2NAP9pnL1tU4NZluvuEC8GQCedY2",
+            uid: "",
             user: {},
             graphValue: "",
             graphColorR: 91,
@@ -37,65 +38,43 @@ export default class Mainpage extends Component {
         }
     }
 
-    async calculateGraph() {
+    calculateGraph() {
         if (this.state.user.packageBy > moment().date()) {
             let dayLeft = this.state.user.packageBy - moment().date()
             let graphValue = Math.round((dayLeft / 30) * 100)
-            this.setState({dayLeft, graphValue})
-            await this.setColor(graphValue)
+            this.setState({dayLeft, graphValue, loading: false})
+            this.setColor(graphValue)
         } else {
            let next = moment().date(this.state.user.packageBy).add(1, 'months')
            let dayLeft = next.diff(moment(), 'd')
            let graphValue = Math.round((dayLeft / 30) * 100)
             this.setState({dayLeft, graphValue, loading: false})
-            await this.setColor(graphValue)
+            this.setColor(graphValue)
         }
     }
 
     nameConvert(name) {
-            let lowerName = name.toLowerCase();
-            let firstLetter = name.substring(0,1)
-            firstLetter = firstLetter.toUpperCase();
-            let rest = name.substring(1,name.length)
-            let res = firstLetter + rest;
-            return res
+        let lowerName = name.toLowerCase();
+        let firstLetter = name.substring(0,1)
+        firstLetter = firstLetter.toUpperCase();
+        let rest = name.substring(1,name.length)
+        let res = firstLetter + rest;
+        return res
     }
 
 
-    componentWillMount() {
-
-        // Initialize firebase if not initialized
-        let firebaseConfig = {
-          apiKey: "AIzaSyCHcfez2Dc4UHn9611joddAaEdemkLo4MQ",
-          authDomain: "vivo-b3f86.firebaseapp.com",
-          databaseURL: "https://vivo-b3f86.firebaseio.com",
-          projectId: "vivo-b3f86",
-          storageBucket: "vivo-b3f86.appspot.com",
-          messagingSenderId: "72620720352"
-        };
-        
-        if (firebase.apps.length === 0) firebase.initializeApp(firebaseConfig)
-        
-        if (firebase.auth().currentUser) {
-            this.setState({uid: firebase.auth().currentUser.uid})
-        } else {
-            this.setState({uid: this.props.uid})
-        }
-
-        let uid = this.state.uid;
-        
-        return firebase.database().ref('/users/' + uid).once('value')
+    async componentWillMount() {
+        await this.setState({uid: this.props.firebase.auth.currentUser.uid})
+        let uid = this.state.uid
+        return this.props.firebase.getUser(uid)
             .then((res) => {
                 let user = res.val()
                 user.firstName = this.nameConvert(user.firstName)
                 user.lastName = this.nameConvert(user.lastName)
                 this.setState({user})
-                console.log(this.state.user)
-                
             })
             .then(() => {
                 this.calculateGraph()
-                console.log(this.state)
             })
             .catch((err) => {
                 console.log('ERROR: ', err.code, err)
@@ -108,6 +87,7 @@ export default class Mainpage extends Component {
 
     render() {
 
+
         if (this.state.loading) {
             return (
                 <div className="loader">
@@ -118,8 +98,9 @@ export default class Mainpage extends Component {
         }
 
         return (
+
             <div className="mainpageContainer">
-            <SideMenu/>
+            <SideMenu uid={this.props.uid} signOut={this.props.signOut}/>
                 <div className="mainpageWelcome">
                     <div className="mainpageHeader">Hosgeldin <b>{this.state.user.firstName}</b></div>
                     <div className="mainpageBody">
@@ -138,24 +119,12 @@ export default class Mainpage extends Component {
                           Bu ayki paketi atla
                         </button>
                     </div>
-                    <div className="mainpageButtons">
-                        <button className="editSettingsButton">
-                            Bilgilerini Guncelle
-                        </button>
-                        <div className="editSettings">
-                            <div className="editInfo"></div>
-                            <div className="editPayment"></div>
-                            <div className="editPackage"></div>
-                        </div>
-                        <button className="unsubcribe">
-                            Uyelik Islemleri
-                        </button>
-                        <div className="unsubcribe"></div>
-                        <button className="contactUs">Iletisime Gecin</button>
-                        <button className="signOut">Cikis yap</button>
-                    </div>
                 </div>
             </div>
         )
     }
 }
+
+const condition = authUser => !!authUser;
+
+export default withAuthorization(condition)(Mainpage);

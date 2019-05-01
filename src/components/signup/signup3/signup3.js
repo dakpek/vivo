@@ -39,7 +39,7 @@ export default class SignUp3 extends Component {
                         5 uzun, 
                         6 normal 
                         </div>
-                        <div className="typePrice">10TL + kargo</div>
+                        <div className="typePrice">14 TL</div>
                     </div>
                     <div 
                     className="type" 
@@ -53,7 +53,7 @@ export default class SignUp3 extends Component {
                         } else {
                             this.setState({selected: 2})
                         }
-                        this.props.handleType("regular")
+                        this.props.handleType("extra")
                     }}>
                         <div className="typeTitle">extra</div>
                         <img className="typeImage" src={extra}/>
@@ -62,7 +62,7 @@ export default class SignUp3 extends Component {
                         7 uzun, 
                         8 normal 
                         </div>
-                        <div className="typePrice">11.50TL + kargo</div>
+                        <div className="typePrice">16 TL</div>
                     </div>
                     <div className="signUpFormButtons">
                             <button
