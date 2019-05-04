@@ -8,6 +8,9 @@ import SignIn from './components/signIn'
 import SignUp from './components/signup'
 import Contact from './components/contact'
 import Package from './components/settings/package'
+import Profile from './components/settings/profile'
+import Cancellation from './components/cancellation'
+import Bye from './components/cancellation/bye/'
 
 const App = () => (
   
@@ -18,6 +21,9 @@ const App = () => (
             <Route exact path = '/girisyap' component={SignIn} />
             <Route exact path = '/iletisim' component={Contact} />
             <Route exact path = '/paketim' component={Package} />
+            <Route exact path = '/bilgilerim' component={Profile} />
+            <Route exact path = '/iptal' component={Cancellation} />
+            <Route exact path = '/bye' component={Bye} />
       </div>
     </BrowserRouter>
 

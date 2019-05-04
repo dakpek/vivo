@@ -86,7 +86,7 @@ class HomepageBase extends Component {
                 </div>
                 
                 </div>
-            <div className="homepage">
+            <div className="homepage" id="homepage1" >
                 <div className="homepageWords">
                 <div className="homepageTitle"><h2>DIKKAT: <br/> Yuksek Gerilim</h2></div>
                     <div className="homepageImages">
@@ -115,8 +115,8 @@ class HomepageBase extends Component {
           
                 </div>
             </div>
-            <div className="homepage">
-                <div className="homepageTitle"><h2>Viva nasil calisir?</h2></div>
+            <div className="homepage" id="homepage2">
+                <div className="homepageHowTitle"><h2>Viva nasil calisir?</h2></div>
                 <div className="homepageHowBox">
                     <div className="col1">
                         <div className="row1">
@@ -130,9 +130,6 @@ class HomepageBase extends Component {
                         </div>
                         <div className="row4">
                         4.
-                        </div>
-                        <div className="row5">
-                        5.
                         </div>
                     </div>
                     <div className="col2">
@@ -148,16 +145,11 @@ class HomepageBase extends Component {
                         </div>
                         <div className="row3">
                         <div className="homepageHow">
-                        Pakete asik ol, ve uyeligine sonsuza kadar devam et! <span className="homepageHow-joke">😁  Saka saka, tabii ki de begenmezsen paketi iade edip, uyeligini kosulsuz iptal edebilirsin.</span>
-                        </div>
-                        </div>
-                        <div className="row4">
-                        <div className="homepageHow">
                         Bizden memnun kalirsan, baska birsey yapmana gerek yok.
                         Hey ay kredi kartindan abonelik ucreti duser, gununde paketini kapina yetistiririz.
                         </div>
                         </div>
-                        <div className="row5">
+                        <div className="row4">
                         <div className="homepageHow">
                         Baktin ki ayri dunyalarin insanlari olduk, siteye girip tek tusla bu iliskiye noktayi koyabilirsin. 
                         <span className="homepageHow-joke"> Hayir, degisebilirim ayaklari da yok, merak etme.</span>
@@ -166,7 +158,7 @@ class HomepageBase extends Component {
                     </div>
                 </div>
             </div>
-                <div className="homepage">
+                <div className="homepage" id="homepage3">
                 <div className="homepageTitle"><h2>Hala sorularim var Nalan?!</h2></div>
                 <div className="homepageWords">
                     <div className="homepageQ">Paket</div>
@@ -216,15 +208,15 @@ class HomepageBase extends Component {
                     </a>
                 </div>
             </div>
-            <div className="homepage">
+            <div className="homepage" id="homepage4">
                 <div className="homepageTitleFinal"><h2>Haydi katil aramiza</h2></div>
                 <div className="homepageFinalWords">
                 Cunku bu klup seninle daha guzel. Hem kaliteli ped icin fazla fiyat odemeyi birak, hem pedim bitti derdine son ver, hem kapina getirttir. 
                 Hem de bizimle beraber Turk Kadinlarini ve Turk ekonomisini destekle!
+                <div className="homepageFooter">
+                © Viva A.S, 2019
                 </div>
-            <div className="homepageFooter">
-            © Viva A.S, 2019
-            </div>
+                </div>
             </div>
             </div>
         </div>

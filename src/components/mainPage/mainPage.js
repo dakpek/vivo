@@ -24,6 +24,14 @@ class Mainpage extends Component {
         }
     }
 
+    skipPackage = async () => {
+        let user = this.state.user
+        let uid = this.state.uid
+        user.skipMonth = true;
+        await this.props.firebase.setUser(uid, user)
+        this.calculateGraph()
+    }
+
     setColor(value) {
         if (value > 50) {
             let r = this.state.graphColorR;
@@ -39,7 +47,12 @@ class Mainpage extends Component {
     }
 
     calculateGraph() {
-        if (this.state.user.packageBy > moment().date()) {
+        if (this.state.user.skipMonth) {
+            let dayLeft = 30;
+            let graphValue = 100;
+            this.setState({dayLeft, graphValue, loading: false})
+            this.setColor(graphValue)
+        } else if (this.state.user.packageBy > moment().date()) {
             let dayLeft = this.state.user.packageBy - moment().date()
             let graphValue = Math.round((dayLeft / 30) * 100)
             this.setState({dayLeft, graphValue, loading: false})
@@ -114,8 +127,14 @@ class Mainpage extends Component {
                           type='circle'
                         />
                         </div>
-                        <div className="mainpageGraphWords">birdahaki paketine<div className="graphWordsNumber">{this.state.dayLeft}</div>gun kaldi</div>
-                        <button className="skipPackage">
+                        {this.state.user.skipMonth
+                        ? <div className="mainpageGraphWords">Birdahaki ay <br/> gorusuruz :)</div>
+                        : <div className="mainpageGraphWords">birdahaki paketine<div className="graphWordsNumber">{this.state.dayLeft}</div>gun kaldi</div>
+                        }
+                        <button 
+                        onClick={this.skipPackage}
+                        disabled={this.state.user.skipMonth}
+                        className="skipPackage">
                           Bu ayki paketi atla
                         </button>
                     </div>

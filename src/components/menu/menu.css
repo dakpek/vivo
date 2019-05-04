@@ -34,6 +34,7 @@
     margin-top: 1vh;
     text-decoration: none;
     outline: none;
+    display: block;
 }
 
 .menuRow:focus {
@@ -52,6 +53,8 @@
     padding: 8%;
     background-color: aqua;
     border: solid 0px;
+    outline: none;
+    text-decoration: none;
 }
 
 .XmenuRow {

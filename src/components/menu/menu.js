@@ -4,6 +4,7 @@ import { withFirebase } from '../Firebase';
 import './menu.css';
 import { Menu } from 'grommet-icons'
 import Profile from '../settings/profile';
+import Cancellation from '../cancellation'
 
 export default class SideMenu extends Component {
     constructor(props) {
@@ -58,7 +59,9 @@ export default class SideMenu extends Component {
                             "display": this.state.settingsOpen ? "block" : "none"
                         }}
                         className="menuSubRow">Odeme Guncelle</div>
-                        <div className="menuRow">Uyelik Iptali</div>
+                        <Link 
+                        to='/iptal' 
+                        className="menuRow">Uyelik Iptali</Link>
                         <div className="XmenuRow">Hesap Bilgileri</div>
                         <div className="XmenuRow">Gecmis odemeler</div>
                         <Link 

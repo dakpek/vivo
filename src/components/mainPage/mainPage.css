@@ -81,10 +81,21 @@
 .skipPackage {
     font-size: 1em;
     width: 45vw;
-    height: 5vh;
-    background-color: rgba(226, 226, 226, 0.4);
+    height: 7vh;
+    background-color:  rgba(112, 62, 188, 0.2);
     border-radius: 10px;
+    color: rgb(112, 62, 188);
     border: solid 1px;
+    font-family: 'Futura';
+    font-size: 1em;
+}
+
+.skipPackage:focus {
+    outline: none;
+}
+
+.skipPackage:active {
+    background-color: rgba(112, 62, 188, 0.4);
 }
 
 
@@ -101,4 +112,11 @@
 
 #signOut {
 
+}
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
 }

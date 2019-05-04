@@ -47,10 +47,34 @@ class Firebase {
 
     // *** User API ***
 
-    
-    setUser = (uid, data) => this.db.ref(`users/${uid}`).set(data);
-    getUser = uid => this.db.ref(`users/${uid}`).once('value')
 
+    cancelSubscription = async (reason) => {
+
+      let uid = await this.auth.currentUser.uid
+      await this.getUser(uid)
+      .then(res => {
+        let user = res.val()
+        this.setPastUser(uid, user)
+      })
+
+      let date = await new Date();
+      date = date.toString()
+      await this.db.ref(`cancellations/${uid}`).set({
+        date, 
+        reason
+      })
+      .then(() => {
+        this.removeUser(uid)
+      })
+    }
+      
+
+
+    setUser = (uid, data) => this.db.ref(`users/${uid}`).set(data);
+    setPastUser = (uid, data) => this.db.ref(`pastUsers/${uid}`).set(data);
+    getUser = uid => this.db.ref(`users/${uid}`).once('value')
+    getPastUser = uid => this.db.ref(`pastUsers/${uid}`).once('value')
+    removeUser = uid => this.db.ref(`users/${uid}`).remove();
     users = () => this.db.ref('users');
 }
   
