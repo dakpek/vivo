@@ -8,7 +8,7 @@ import Mainpage from '../mainPage';
 import { withFirebase } from '../Firebase';
 import { withAuthentication } from '../Session'
 import { withAuthorization } from '../Session'
-import { compose } from 'recompose';
+import Navbar from '../navbar';
 
 class HomepageBase extends Component {
     
@@ -64,7 +64,8 @@ class HomepageBase extends Component {
         if (this.props.firebase.auth.currentUser) return <Mainpage />
         
         return (
-            <div className="entireContainer">
+            <div className="homepageContainer">
+            <Navbar />
             <div className="SignInContainer">
             </div>
             <div className="homepageContainer">

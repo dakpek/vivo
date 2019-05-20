@@ -1,0 +1,65 @@
+.landingContainer {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.landingBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.landingWords {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: baseline;
+    padding: 5vw;
+}
+
+.words {
+    font-family: 'Futura';
+    text-align: left;
+    margin-top: 2vh;
+}
+
+#header {
+    font-size: 2em;
+}
+
+#sub {
+    font-size: 1.25em;
+}
+
+.tryme {
+    font-family: 'Futura';
+    align-self: center;
+    margin-top: 3vh;
+    border: 1px solid black;
+    padding: 2%;
+    font-size: 1.5em;
+
+}
+
+.landingImg1 {
+    opacity: 0.8;
+    display: flex;
+    height: 65vh;
+    width: 50vw;
+    object-fit: cover;
+}
+
+.landingPointer {
+    height: 20vh;
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.landingPointerImg {
+    height: 10vh;
+}

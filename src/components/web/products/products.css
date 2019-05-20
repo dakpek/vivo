@@ -1,0 +1,139 @@
+html {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+
+.productsCointainer {
+    min-width: 100vw;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.productsBox {
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.productSection {
+    height: 75vh;
+    width: 30vw;
+    z-index: 0;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.productPadImage {
+    opacity: 0.8;
+    height: 65vh;
+    z-index: -1;
+}
+
+/* FORM */
+
+.productForm {
+    display: flex;
+    flex-direction: column;
+    height: 75vh;
+    font-family: 'Futura';
+    justify-content: space-evenly;
+    text-align: left;
+    margin-left: 8vw;
+}
+
+.formHeader {
+    margin-left: 8vw;
+    font-family: 'Futura';
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+
+.formSelectionLabel {  
+    font-size: 0.8em;
+    text-transform: uppercase;
+    
+
+}
+.formSelection {
+    display: flex;
+    flex-direction: row;
+    font-size: 1.3em;
+    justify-content: space-evenly;
+}
+
+.formSelectBox {
+    border: solid 2px  rgb(180, 118, 149);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 7vh;
+    width: 10vw;
+}
+
+#medium {
+    border-left: 0px;
+    border-right: 0px;
+}
+
+#long {
+    border-left: 0px;
+    width: 15vw;
+}
+
+#short {
+    width: 15vw;
+}
+
+.checkout {
+    border: 1px solid white;
+    background-color: rgb(20, 20, 20);
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    font-family: 'Futura';
+    height: 6vh;
+}
+
+.featuresHeader {
+    font-size: 1.1em;
+    font-family: 'Futura';
+    margin-bottom: 5vh;
+}
+
+.feature {
+    display: flex;
+    flex-direction: column;
+}
+
+.featureTitle {
+    font-size: 0.8em;
+    text-transform: uppercase;
+    display: flex;
+    padding: 3%;
+}
+
+.featureTitleExpand {
+    margin-left: 0.8vw;
+    border: none;
+    outline: none;
+    font-size: 0.9em;
+}
+
+.featureSeperator {
+    border: 0.5px solid rgb(30,30,30);
+    margin-top: 1vh;
+}
+
+.feat {
+    font-size: 0.8em;
+    font-family: 'Futura';
+    margin-left: 2vw;
+    padding: 1%;
+}

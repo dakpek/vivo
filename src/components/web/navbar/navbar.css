@@ -1,0 +1,31 @@
+.navbarContainer {
+    display: flex;
+    flex-direction: row;
+    min-width: 100vw;
+    min-height: 10vh;
+    justify-content: space-between;
+    background-color: rgb(180, 118, 149);
+    align-items: center;
+    z-index: 4;
+    color: white;
+    font-family: 'Futura';
+    
+}
+
+.navbarField {
+    display: flex;
+    flex-direction: row;
+    margin: 1vh;
+}
+
+.navbarItem {
+    margin-left: 2vw;
+    margin-right: 2vw;
+    outline: none;
+    text-decoration: none;
+    color: white;
+}
+
+.navbarTitle {
+    padding-right: 12vw;
+}

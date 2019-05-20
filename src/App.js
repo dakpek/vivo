@@ -11,12 +11,15 @@ import Package from './components/settings/package'
 import Profile from './components/settings/profile'
 import Cancellation from './components/cancellation'
 import Bye from './components/cancellation/bye/'
+import LandingPage from './components/web/landingPage'
+import Products from './components/web/products'
 
 const App = () => (
   
     <BrowserRouter>
       <div className="App">
-            <Route exact path = '/' component={Homescreen} />
+            <Route exact path = '/' component={LandingPage} />
+            <Route exact path = '/paketsec' component={Products} />
             <Route exact path = '/uyeol' component={SignUp} />
             <Route exact path = '/girisyap' component={SignIn} />
             <Route exact path = '/iletisim' component={Contact} />
