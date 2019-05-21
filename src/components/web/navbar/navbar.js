@@ -17,14 +17,14 @@ export default class Navbar extends Component {
             <div className="navbarContainer">
                 <div className="navbarField">
                     <Link to="/paketsec" className="navbarItem">Urunler</Link>
-                    <Link className="navbarItem">Nasil Calisir?</Link>
+                    <Link to="/nasil" className="navbarItem">Nasil Calisir?</Link>
                     <Link className="navbarItem">Bagis Kulturu</Link>
                 </div>
                 <div className="navbarTitle">
                     <div className="navbarItem">xyz</div>
                 </div>
                 <div className="navbarField">
-                    <Link className="navbarItem">Giris Yap</Link>
+                    <Link to='/girisyap' className="navbarItem">Giris Yap</Link>
                     <Link className="navbarItem">Dene</Link>
                 </div>
             </div>

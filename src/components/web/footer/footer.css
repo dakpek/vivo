@@ -1,0 +1,126 @@
+.footerContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: pink;
+}
+
+.footerHeader{
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.footerWord {
+    font-family: 'Futura';
+    color: rgb(30,30,30)
+}
+
+.emailBeg {
+    font-size: 0.8em;
+    font-family: 'Futura';
+    color: rgb(30,30,30);
+    width: 19vw;
+}
+
+.landingEmail {
+    border: 1px solid black;
+    margin-top: 5vh;
+}
+
+.landingEmailField {
+    background-color: pink;
+    border: 0 solid;
+    height: 5vh;
+    width: 12vw;
+    font-family: 'Futura';
+    outline: none;
+    color: black;
+    text-align: center;
+    text-transform: uppercase;
+
+}
+
+.landingEmailSubmit {
+    background-color: pink;
+    height: 5vh;
+    border: none;
+    font-family: 'Futura';
+    font-weight: 900;
+}
+
+.trymeFooter {
+    margin-top: 5vh;
+    font-family: 'Futura';
+    text-decoration: none;
+    outline: none;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    width: 10vw;
+    height: 6vh;
+    align-content: center;
+    align-self: left;
+    border: 3px solid black;
+    color: black;
+    background-color: rgba(30, 30, 30, 0.5);
+    font-size: 1em;
+    font-weight: 900;
+}
+
+.footerBoxes {
+    padding: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 3vh;
+}
+
+.boxHeader {
+    font-family: 'Futura';
+    font-size: 1.1em;
+    margin: 2vh;
+}
+
+.footerBox {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    width: 25vw;
+    height: 20vh;
+}
+
+.footerSocialLinks {
+    margin-top: 2vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 5vw;
+}
+
+.socialMedia {
+    height: 2.2vh;
+}
+
+.footerLink {
+    font-family: 'Futura';
+    margin-top: 1.5vh;
+    font-size: 0.9em;
+    outline: none;
+    text-decoration: none;
+    color: black;
+}
+
+.footerBreak {
+    height: 10vh;
+    border: 0.5px solid rgb(30,30,30);
+}
+
+.footerEnd {
+    font-family: 'Futura';
+    font-size: 0.7em;
+    margin: 5vh;
+}

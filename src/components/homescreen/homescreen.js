@@ -8,7 +8,7 @@ import Mainpage from '../mainPage';
 import { withFirebase } from '../Firebase';
 import { withAuthentication } from '../Session'
 import { withAuthorization } from '../Session'
-import Navbar from '../navbar';
+// import Navbar from '../navbar';
 
 class HomepageBase extends Component {
     
@@ -65,7 +65,7 @@ class HomepageBase extends Component {
         
         return (
             <div className="homepageContainer">
-            <Navbar />
+            {/* <Navbar /> */}
             <div className="SignInContainer">
             </div>
             <div className="homepageContainer">
