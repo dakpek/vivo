@@ -1,0 +1,143 @@
+
+
+.signUp2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: inherit;
+}
+
+.signUp2-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+    width: 100%;;
+    padding-bottom: 4vh;
+}
+
+
+
+
+.signUp2Line {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-evenly; */
+    align-items: center;
+    width: 100%;
+    margin-top: 3vh;
+}
+
+.signUp2-address {
+    display: flex;
+    flex-direction: column;
+}
+
+.signUp2-inputExplanation {
+    font-size: 0.8em;
+    font-weight: 400;
+    align-self: center;
+    font-family: 'Futura';
+    margin-left: 5vw;
+}
+
+#firstName {
+    margin-left: 11.2vw;
+}
+
+#lastName {
+    margin-left: 9.6vw;
+}
+
+#phone {
+    margin-left: 6.1vw;
+}
+
+
+
+.signUp2-input {
+    margin-left: 10vw;
+    width: 13vw;
+    height: 4vh;
+    font-size: 1em;
+    font-family: "Futura";
+    font-color: black;
+    border: 0px;
+    border-bottom: solid 1px;
+    border-color: black;
+}::placeholder{
+    font-size: 0.8em;
+    color: rgba(30,30,30,0.5);
+    font-weight: 100;
+}
+
+.signUp2-input:focus {
+    border: 0px;
+    border-bottom: solid 3px;
+    border-color: pink;
+    outline: none;
+}
+
+
+/* SIGNUP PAGE FORWARD AND BACKWARD BUTTONS */ 
+
+.signUpFormButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 4vh;
+    width: inherit;
+}
+
+
+.signUp2-submit {
+    width: 10vw;
+    background-color: rgba(30, 30, 30);
+    border: 0px;
+    height: 4vh;
+    font-size: 1em;
+    font-family: "Futura";
+    color: whitesmoke;
+    outline: none;
+    text-decoration: none;
+}
+
+
+.signUp2-submit:active {
+    outline: none;
+    background-color: rgba(30,30,30,0.9);
+    border: 1px solid pink;
+}
+.signUp2-submit:focus {
+    outline: none;
+}
+
+
+
+.signUp2-goBack {
+    display: flex;
+    flex-direction: column;
+    width: 10vw;
+    background-color: rgba(240, 240, 240);
+    border: 0px;
+    height: 4vh;
+    font-size: 1em;
+    font-family: "Futura";
+    color: black;
+    outline: none;
+    text-decoration: none;
+    text-align: center;
+    justify-content: center;
+}
+
+
+.signUp2-goBack:active {
+    outline: none;
+    background-color: rgba(170,170,170,0.9);
+    border: 1px solid pink;
+}
+.signUp2-goBack:focus {
+    outline: none;
+}
+

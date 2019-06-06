@@ -1,0 +1,65 @@
+[debug] [2019-05-28T07:53:04.665Z] ----------------------------------------------------------------------
+[debug] [2019-05-28T07:53:04.668Z] Command:       /usr/local/Cellar/node/11.12.0/bin/node /Users/dakpek/.npm-global/bin/firebase emulators:start
+[debug] [2019-05-28T07:53:04.668Z] CLI Version:   6.10.0
+[debug] [2019-05-28T07:53:04.669Z] Platform:      darwin
+[debug] [2019-05-28T07:53:04.669Z] Node Version:  v11.12.0
+[debug] [2019-05-28T07:53:04.670Z] Time:          Tue May 28 2019 10:53:04 GMT+0300 (GMT+03:00)
+[debug] [2019-05-28T07:53:04.670Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-05-28T07:53:04.713Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-05-28T07:53:04.714Z] > authorizing via signed-in user
+[debug] [2019-05-28T07:53:04.716Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-05-28T07:53:04.716Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-05-28T07:53:05.128Z] <<< HTTP RESPONSE 200
+[debug] [2019-05-28T07:53:05.138Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/vivo-b3f86  
+ 
+[debug] [2019-05-28T07:53:05.808Z] <<< HTTP RESPONSE 200
+[info] i  Starting emulators: ["functions","database","hosting"]
+[warn] ⚠  Your requested "node" version "8" doesn't match your global version "11"
+[debug] [2019-05-28T07:53:05.830Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/72620720352:getServerAppConfig  
+ 
+[debug] [2019-05-28T07:53:06.624Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: Emulator started at http://localhost:5001
+[warn] ⚠  Setup required, please run: firebase setup:emulators:database
+[info] i  Shutting down emulators.
+[info] i  Stopping functions emulator
+[debug] [2019-05-28T07:53:06.660Z] 
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2019-05-28T08:03:31.645Z] ----------------------------------------------------------------------
+[debug] [2019-05-28T08:03:31.648Z] Command:       /usr/local/Cellar/node/11.12.0/bin/node /Users/dakpek/.npm-global/bin/firebase emulators:start --only functions
+[debug] [2019-05-28T08:03:31.648Z] CLI Version:   6.10.0
+[debug] [2019-05-28T08:03:31.648Z] Platform:      darwin
+[debug] [2019-05-28T08:03:31.648Z] Node Version:  v11.12.0
+[debug] [2019-05-28T08:03:31.649Z] Time:          Tue May 28 2019 11:03:31 GMT+0300 (GMT+03:00)
+[debug] [2019-05-28T08:03:31.649Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-05-28T08:03:31.673Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-05-28T08:03:31.674Z] > authorizing via signed-in user
+[debug] [2019-05-28T08:03:31.676Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/vivo-b3f86  
+ 
+[debug] [2019-05-28T08:03:33.018Z] <<< HTTP RESPONSE 200
+[info] i  Starting emulators: ["functions"]
+[warn] ⚠  Your requested "node" version "8" doesn't match your global version "11"
+[debug] [2019-05-28T08:03:33.037Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/72620720352:getServerAppConfig  
+ 
+[debug] [2019-05-28T08:03:33.627Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: Emulator started at http://localhost:5001
+[info] i  functions: Watching "/Users/dakpek/Desktop/kod/vivo/functions" for Cloud Functions...
+[debug] [2019-05-28T08:03:33.915Z] Functions runtime initialized.
+[debug] [2019-05-28T08:03:33.915Z] Disabled runtime features: undefined
+[warn] ⚠  The Cloud Functions emulator requires the module "firebase-functions-test" to be installed as a development dependency. To fix this, run "npm install --save-dev firebase-functions-test" in your functions directory.
+[info] i  functions: Your functions could not be parsed due to an issue with your node_modules (see above)
+[debug] [2019-05-28T08:03:36.403Z] Accepted request POST /api/v0/swarm/peers?stream-channels=true --> swarm
+[debug] [2019-05-28T08:03:36.649Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "swarm"
+[debug] [2019-05-28T08:03:36.650Z] Disabled runtime features: undefined
+[warn] ⚠  The Cloud Functions emulator requires the module "firebase-functions-test" to be installed as a development dependency. To fix this, run "npm install --save-dev firebase-functions-test" in your functions directory.
+[info] i  functions: Your functions could not be parsed due to an issue with your node_modules (see above)
+[debug] [2019-05-28T08:03:39.391Z] Accepted request POST /api/v0/swarm/peers?stream-channels=true --> swarm
+[debug] [2019-05-28T08:03:39.642Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "swarm"
+[debug] [2019-05-28T08:03:39.643Z] Disabled runtime features: undefined
+[warn] ⚠  The Cloud Functions emulator requires the module "firebase-functions-test" to be installed as a development dependency. To fix this, run "npm install --save-dev firebase-functions-test" in your functions directory.
+[info] i  functions: Your functions could not be parsed due to an issue with your node_modules (see above)

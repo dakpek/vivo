@@ -1,0 +1,80 @@
+.outercontainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.itemSeperator {
+    border: 0.5px solid lightgray;
+    width: 80%;
+    align-self: center;
+    margin-bottom: 1vh;
+    margin-top: 1vh;
+}
+
+.itemContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 10vh;
+    width: %100;
+    padding: 1vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+
+.itemImage {
+    height: 10vh;
+    object-fit: contain;
+    margin-left: 1vw;
+}
+
+.itemBlock {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: 2vw;
+    margin-right: 0.3vw;
+}
+
+.itemWords {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.itemWord {
+    font-size: 1.2em;
+    text-align: left;
+    font-family: 'Futura';
+    color: black;
+}
+
+#sub {
+    font-size: 1em;
+    color: rgba(30,30,30, 0.4);
+}
+
+.itemPrice {
+    font-size: 1.2em;
+    text-align: left;
+    font-family: 'Futura';
+    color: black;
+}
+
+.itemRight {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.itemCancel {
+    color: gray;
+    margin-left: 1vw;
+}
+
+.x {
+    height: 2vh;
+    margin-top: 0.4vh;
+}

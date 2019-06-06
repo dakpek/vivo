@@ -1,0 +1,166 @@
+.homepageContainer {
+    width: 100vw;
+    height: 100vh;
+}
+
+.homepageBox {
+    display: flex;
+    flex-direction: column;
+    width: inherit;
+    padding: 10vh;
+    padding-right: 10vw;
+    padding-left: 10vw;
+}
+
+.homepageLine {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 5vh;
+}
+
+.homepageHeader {
+    font-family: 'Futura';
+    font-size: 2em;
+    font-weight: bold;
+    display: flex;
+    margin-top: 5vh;
+}
+
+#helloHeader {
+    font-size: 3em;
+    margin-bottom: 0;
+    margin-top: 0vh;
+    display: inline;
+}
+
+.homepageButtons {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+#hello {
+    justify-content: center;
+    background-color: rgba(255,193,203, 0.6)
+}
+
+
+
+.homepageWords {
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    max-width: 60%;
+    
+}
+.homepageWord {
+    text-align: left;
+    font-family: 'Futura';
+    font-size: 1.1em;
+    margin-bottom: 1vh;
+}
+
+#card {
+    margin-right: 2vw;
+    margin-bottom: 2vh;
+}
+
+
+
+
+.cardWhole {
+    border: 1px solid blue;
+    border-radius: 15px;
+    padding: 3%;
+    padding-bottom: 3%;
+    padding-top: 3%;
+    text-align: left;
+    height: 12vh;
+    width: 15vw;
+    margin-bottom: 3vh;
+}
+
+.card {
+    display: flex;
+    justify-content: baseline;
+}
+
+.homepageButton {
+    margin: 2vh;
+    height: 6vh;
+    width: 14vw;
+    border: 2px solid black;
+    color: black;
+    font-family: 'Futura';
+    font-size: 1.2em;
+    outline: none;
+
+}
+
+.homepageButton:hover {
+    background-color: pink;
+    color: black;
+    outline: none;
+}
+
+.homepageCancel {
+    margin: 2vh;
+    height: 6vh;
+    width: 14vw;
+    border: 2px solid gray;
+    color: gray;
+    font-family: 'Futura';
+    font-size: 1.2em;
+    outline: none;
+
+}
+
+.homepageCancel:hover {
+    background-color: pink;
+    color: black;
+    outline: none;
+}
+
+
+
+#cancel {
+    background-color: red;
+}
+
+.addressForward {
+    height: 10vh;
+    opacity: 0.2;
+}
+
+.homepageAddressChange {
+    display: flex;
+    flex-direction: column;
+    margin-right: 5vw;
+}
+
+.homepageAddressInput {
+    width: 15vw;
+    height: 4vh;
+    font-size: 1em;
+    font-family: "Futura";
+    font-color: black;
+    border: 0px;
+    border-bottom: solid 2px;
+    border-color: black;
+}::placeholder{
+    font-size: 0.8em;
+    color: rgba(30,30,30,0.5);
+    font-weight: 100;
+}
+
+.homepageAddressInput:focus {
+    border: 0px;
+    border-bottom: solid 3px;
+    border-color: pink;
+    outline: none;
+}
+

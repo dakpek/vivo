@@ -1,0 +1,192 @@
+html {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+
+.productsCointainer {
+    min-width: 100vw;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.productsBox {
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.productSection {
+    height: 75vh;
+    width: 30vw;
+    z-index: 0;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.productPadImage {
+    opacity: 0.8;
+    height: 65vh;
+    z-index: -1;
+}
+
+/* FORM */
+
+.productForm {
+    display: flex;
+    flex-direction: column;
+    height: 75vh;
+    font-family: 'Futura';
+    justify-content: space-evenly;
+    text-align: left;
+    margin-left: 8vw;
+}
+
+.formHeader {
+    margin-left: 8vw;
+    font-family: 'Futura';
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+
+.formSelectionLabel {  
+    font-size: 0.8em;
+    text-transform: uppercase;
+    margin-bottom: 2vh;
+    margin-top: 1vh;
+    
+
+}
+.formSelection {
+    display: flex;
+    flex-direction: row;
+    font-size: 1.3em;
+    justify-content: space-evenly;
+}
+
+.formSelectBox {
+    border: solid 1px  rgb(180, 118, 149);
+    border-left: 0px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 4vh;
+    width: 10vw;
+}
+
+#none {
+    border: solid 1px  rgba(170,170,170);
+    border-right: solid 1px  rgb(180, 118, 149);
+    background-color: rgba(230,230,230, 0.5);
+    color: rgba(200,200,200);
+}
+
+
+.checkout {
+    border: 2px solid rgba(20, 20, 20);
+    background-color: rgba(20, 20, 20, 0.8);
+    color: white;
+    display: flex;
+    text-transform: uppercase;
+    text-decoration: none;
+    outline: none;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-size: 1em;
+    font-family: 'Futura';
+    height: 6vh;
+}
+
+.featureExplanation {
+    margin-bottom: 3vh;
+}
+
+.featuresHeader {
+    font-size: 1.1em;
+    font-family: 'Futura';
+    margin-bottom: 5vh;
+}
+
+.feature {
+    display: flex;
+    flex-direction: column;
+}
+
+.featureTitle {
+    font-size: 0.8em;
+    text-transform: uppercase;
+    display: flex;
+    padding: 3%;
+}
+
+.featureTitleExpand {
+    margin-left: 0.8vw;
+    border: none;
+    outline: none;
+    font-size: 0.9em;
+}
+
+.featureSeperator {
+    border: 0.5px solid rgb(30,30,30);
+    margin-top: 1vh;
+}
+
+.feat {
+    font-size: 0.8em;
+    font-family: 'Futura';
+    margin-left: 2vw;
+    padding: 1%;
+}
+
+.formSelectionUnit {
+    margin-top: 0.5vh;
+    font-size: 1em;
+}
+
+.totalSeperator {
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    border: 0.5px solid rgb(240, 240, 240);
+    width: 90%;
+}
+
+.total {
+    font-family: 'Futura';
+    font-size: 1.7em;
+    font-weight: 400;
+}
+
+
+/* CAROUSEL */
+
+
+.prev {
+    position: absolute;
+    top: 30vh;
+    height: 3vh;
+    width: 3vh;
+    left: 1vw;
+    background-color: rgba(30,30,30,0.1);
+    border: 0px;
+    border-radius: 25px;
+    outline: none;
+}
+
+.next {
+    position: absolute;
+    top: 30vh;
+    height: 3vh;
+    width: 3vh;
+    left: 24vw;
+    background-color: rgba(30,30,30,0.1);
+    border: 0px;
+    border-radius: 25px;
+    outline: none;
+}

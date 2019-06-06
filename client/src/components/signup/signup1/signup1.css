@@ -1,0 +1,88 @@
+.signUp1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.signUp-inputExplanation {
+    font-size: 0.8em;
+    font-weight: 400;
+    align-self: baseline;
+    font-family: 'Futura';
+    margin: 1vh;
+    margin-left: 0vh;
+}
+
+
+.signUp1-form {
+    padding: 1vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.signUp1-input {
+    width: 13vw;
+    height: 4vh;
+    font-size: 1.2em;
+    font-family: "Futura";
+    font-color: black;
+    border: 0px;
+    border-bottom: solid 1px;
+    border-color: black;
+}::placeholder {
+    font-size: 0.8em;
+    color: rgba(30,30,30,0.5);
+    font-weight: 100;
+}
+
+.signUp1-input:focus {
+    border: 0px;
+    border-bottom: solid 3px;
+    border-color: pink;
+    outline: none;
+}
+
+.signUp1-submit {
+    width: 10vw;
+    background-color: rgb(30, 30, 30);
+    border: 0px;
+    height: 4vh;
+    font-size: 1em;
+    font-family: "Futura";
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+
+    color: whitesmoke;
+}
+
+.signUp1-submit:active {
+    outline: none;
+    background-color: rgba(30,30,30,0.9);
+    border: 1px solid pink;
+}
+.signUp1-submit:focus {
+    outline: none;
+}
+
+.signUp1-error{
+    min-width: 24vw;
+    margin: 0.5vh;
+    height: 3vh;
+    font-size: 0.8em;
+    font-family: 'Futura';
+    color: rgba(238, 83, 83, 0.8);
+  }
+
+  .signUp1-submit-disabled {
+    width: 10vw;
+    background-color: rgba(200, 200, 200);
+    border: 0px;
+    height: 4vh;
+    font-size: 1em;
+    font-family: "Futura";
+    color: whitesmoke;
+    outline: none;
+    text-decoration: none;
+}

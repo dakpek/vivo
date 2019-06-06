@@ -1,0 +1,244 @@
+/* ----------
+MOBILE FIRST 
+-------------*/
+
+/* ENTIRE CONTAINER */
+
+.homepageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+	padding: 0;
+}
+
+.homepageHeader {
+    display: none;
+    flex-direction: row;
+}
+
+.SignInContainer {
+    min-width: 100vw;
+    min-height: 100vh;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+}
+
+/* FIRST PAGE */
+
+.homepageEntrance {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.signIn {
+    opacity: 1;
+}
+
+.logo {
+    width: 80%;
+    opacity: 1;
+    align-self: center;
+    padding-top: 30vh;
+}
+
+.homepageTagline {
+    font-family: "Futura";
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+.homepageButtons {
+    display: flex;
+    flex-direction: column;
+    padding-top: 45vw;
+    float: bottom;
+    z-index: 2;
+}
+
+.homepageSignup {
+    height: 7vh;
+    font-family: "Futura";
+    font-weight: bold;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 1.2em;
+    margin: 1vh;
+    background-color:rgb(86, 27, 37);
+    color: white;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.homepageSignin {
+    height: 7vh;
+    font-family: "Futura";
+    font-weight: bold;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 1.2em;
+    margin: 1vh;
+    background-color: rgb(242, 162, 175);
+    color: white;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* SECOND PAGE */
+
+.homepage {
+    /* width: 100vw; */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#homepage1 {
+    background-color: rgba(132, 7, 28, 0.2)
+}
+#homepage2 {
+    background-color: rgba(132, 7, 28, 0.4)
+}
+#homepage3 {
+    background-color: rgba(132, 7, 28, 0.6)
+}
+#homepage4 {
+    background-color: rgba(132, 7, 28, 0.8)
+}
+
+.homepageTitle {
+    font-family: "Futura";
+    font-weight: bold;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 1.2em;
+    padding-top: 2vh;
+}
+
+.homepageParagraph {
+    padding: 5%;
+}
+
+.homepageHow {
+    padding: 5%;
+}
+
+/* HOW */
+
+.homepageHowBox {
+    display: flex;
+    max-height: 100vh;
+}
+
+.homepageHowTitle {
+    font-family: "Futura";
+    font-weight: bold;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 1.2em;
+}
+
+.col1 {
+    min-width: 17%;
+    padding-left: 5vw;
+    font-family: "Futura";
+    font-weight: bold;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 3em;
+    text-align: center;
+    justify-content: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.col2 {
+    text-align: left;
+    padding-right: 3vw;
+    font-family: "Futura";
+}
+
+.row1 {
+    min-height: 15vh;
+    padding-top: 2.5vh;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+
+}
+.row2 {
+    min-height: 15vh;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+
+}
+.row3 {
+    min-height: 25vh;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+
+}
+.row4 {
+    min-height: 25vh;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+
+}
+
+/* FAQ */
+
+.homepageQ {
+    text-align: left;
+    padding-left: 5%;
+    font-family: "Futura";
+    font-size: 1.7em;
+    font-weight: 300;
+}
+
+.homepageQParagraph {
+    text-align: left;
+    padding: 5%;
+    font-family: "Futura";
+}
+
+/* PHILOSOPHY */
+
+.homepagePhilosophy {
+    display: none;
+}
+
+/* FINAL PAGE */
+
+.homepageTitleFinal {
+    font-family: "Futura";
+    font-weight: bold;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 1.2em;
+    padding-top: 40%;
+}
+
+.homepageFooter {
+    padding-top: 50%;
+    font-style: italic;
+    font-size: 0.8em;
+}
+
+.homepageFinalWords {
+    font-family: "Futura";
+    text-align: center;
+    padding: 10%;
+    font-size: 1.1em;
+}

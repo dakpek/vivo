@@ -1,0 +1,56 @@
+.byeContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.byeHeader1 {
+    font-family: 'Futura';
+    font-size: 2em;
+    text-align: center;
+    margin-top: 8vh;
+}
+
+.byeHeader2 {
+    font-family: 'Futura';
+    font-size: 1.3em;
+    color: rgb(150, 150, 150);
+    text-align: center;
+    margin: 1%;
+    margin-left: 5vw;;
+    margin-right: 5vw;;
+}
+
+.byeBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.byeImage {
+    height: 60vh;
+    width: 80vw;
+    object-fit: none;
+    margin-bottom: 2vh;
+}
+
+.byeGo {
+    width: 40vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(112, 62, 188, 0.2);
+    border-radius: 10px;
+    height: 7vh;
+    text-align: center;
+    font-size: 1.3em;
+    font-family: "Futura";
+    color: rgb(112, 62, 188);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.byeGo:active {
+    background-color: rgba(112, 62, 188, 0.5);
+    outline: none;
+}

@@ -1,0 +1,16 @@
+.signUp-inputExplanation {
+    font-size: 0.8em;
+    font-weight: bold;
+    align-self: baseline;
+    margin-top: 7%;
+}
+
+.signUpFormButtons {
+    display: flex;
+    flex-direction: row;
+    width: 60vw;
+    height: 7vh;
+    position: absolute;
+    top: 90vh;
+    left: 10vw;
+}

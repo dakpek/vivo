@@ -1,0 +1,100 @@
+
+
+.faq-container {
+  width: 100vw;
+  margin-bottom: 5vh;
+  flex-wrap: wrap;
+  justify-content: center;
+  display: flex;
+  padding-top: 4vh;
+}
+
+.question {
+  font-family: 'Futura';
+  padding: 1.5vh;
+  margin: 3vh 10vw 0vh 10vw;
+  border: 1px solid rgba(30,30,30,0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: baseline;
+  height: auto;
+  position: relative;
+  width: 40%;
+  transition: 0.3s;
+}
+
+.question:hover {
+    border: 1.5px dashed rgb(245, 127, 133);
+    transition: 0s;
+}
+
+.title {
+    font-size: 1em;
+    font-weight: 200;
+    display: inline;
+    height: auto;
+  /* margin-right: 3vw; */
+}
+
+.answer {
+    font-size: 0.9em;
+    text-align: left;
+}
+
+.faqTitle {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.faq-title {
+  font-family: 'Futura';
+  font-weight: 500;
+  font-size: 4em;
+  display: flex;
+  margin-bottom: 0vh;
+  justify-content: center;
+  align-items: center;
+  margin: 5vh;
+  margin-left: 1vw;
+  margin-right: 3.8vw;
+}
+
+.faq-subtitle {
+    font-family: 'Futura';
+    font-weight: 100;
+    color: rgba(120,120,120);
+    font-size: 2em;
+    display: flex;
+    margin-bottom: 0vh;
+    justify-content: center;
+    align-items: center;
+    margin: 5vh;
+    margin-right: 0vw;
+}
+
+.arrow {
+  display: inline;
+  fill: rgb(242, 212, 213);
+  /* float: inherit; */
+  position: absolute;
+  top: 13px;
+  right: 1vw;
+  height: 26px;
+  transform: rotate(90deg);
+  transition: 0.4s;
+}
+
+@media screen and (max-width: 40em) {
+  .faq-container {
+    min-width: 316px;
+  }
+
+  .question {
+    font-size: 0.75em;
+  }
+
+  .arrow {
+    display: none;
+  }
+}

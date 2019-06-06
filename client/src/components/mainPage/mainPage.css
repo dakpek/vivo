@@ -1,0 +1,122 @@
+.mainpageContainer {
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.mainpageMenu {
+    height: 7vh;
+    display: block;
+    display: flex;
+    flex-direction: row;
+}
+
+.menuIcon {
+    height: 5vh;
+    width: 12vw;
+    position: absolute;
+    top: 13px;
+    left: 13px;
+}
+
+.mainpageWelcome {
+    display: flex;
+    flex-direction: column;
+    min-width: 100vw;
+}
+
+.mainpageHeader {
+    font-family: 'Futura';
+    font-size: 1.5em;
+    font-weight: 400;
+    margin-top: 10vh;
+}
+
+.mainpageBody {
+    display: flex;
+    flex-direction: column;
+    min-width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainpageGraph {
+    width: 80vw;
+    margin: 0;
+}
+
+.graphWordsNumber {
+    margin: 0;
+    font-family: 'Futura';
+    font-size: 1.6em;
+    font-weight: 500;
+}
+
+.loadingIcon {
+    height: 35vh;
+    margin-top: 25vh;
+    margin-left: 3vw;
+}
+
+.loader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainpageGraphWords {
+    justify-self: center;
+    align-self: center;
+    position: fixed;
+    padding-bottom: 5%;
+    margin: 0;
+    font-family: 'Futura';
+    font-size: 1.1em;
+    font-weight: 500;
+    z-index: 2;
+}
+
+.skipPackage {
+    font-size: 1em;
+    width: 45vw;
+    height: 7vh;
+    background-color:  rgba(112, 62, 188, 0.2);
+    border-radius: 10px;
+    color: rgb(112, 62, 188);
+    border: solid 1px;
+    font-family: 'Futura';
+    font-size: 1em;
+}
+
+.skipPackage:focus {
+    outline: none;
+}
+
+.skipPackage:active {
+    background-color: rgba(112, 62, 188, 0.4);
+}
+
+
+#updateInfo {
+}
+
+#membership {
+
+}
+
+#contactUs {
+
+}
+
+#signOut {
+
+}
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}

@@ -1,0 +1,25 @@
+.paymentButton {
+    margin: 4vh;
+    height: 5vh;
+    width: 10vw;
+    border: 2px solid black;
+    color: black;
+    font-family: 'Futura';
+    font-size: 1em;
+
+}
+
+.paymentButton:hover {
+    background-color: pink;
+    color: black;
+}
+
+#field-wrapper {
+    margin-top: 5vh;
+    display: flex;
+}
+
+.credit-card-input {
+    font-family: 'Futura';
+    font-size: 2em;
+}
