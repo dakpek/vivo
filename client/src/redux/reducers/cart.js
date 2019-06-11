@@ -1,28 +1,29 @@
 import { actionConstants } from '../actions/action-consts'
 
 export const cart = (state = {
-  pads: {
-      extra: null,
-      normal: null,
-      daily: null
-  },
-  tampons: null,
-  pills: null,
+  content: null,
+  prices: null,
+  name: null,
+  totalPrice: null,
   loading: null,
   error: null,
-  price: null
   
   }, action) => {
   switch (action.type) {
                                                                                 // CART
-  case actionConstants.CART_CHANGE_SUCCESS :
+  case actionConstants.CART_CHANGE_STARTED :
     return {
-      ...state,
+      loading: true
+    }
+    break;
+  case actionConstants.CART_CHANGE_SUCCESS :
+    console.log('ACTION PAYLOAD: ', action.payload)
+    return {
       loading: false,
-      pads: action.payload.pads,
-      tampons: action.payload.tampons,
-      pills: action.payload.pills,
-      price: action.payload.price
+      content: action.payload.content,
+      prices: action.payload.prices,
+      name: action.payload.name,
+      totalPrice: action.payload.totalPrice,
     }
     break;
   default: return state;

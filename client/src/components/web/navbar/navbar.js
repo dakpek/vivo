@@ -28,6 +28,8 @@ class Navbar extends Component {
     }
 
     render() {
+
+        console.log('here', this.props.cart.box)
         return (
             <div className="navbarContainer">
                 <div className="navbarField">
@@ -36,10 +38,10 @@ class Navbar extends Component {
                     <Link to="/varolus" className="navbarItem">Bagis Kulturu</Link>
                 </div>
                 <div className="navbarTitle">
-                    <div id="brand" className="navbarItem">8kadinlar</div>
+                    <div id="brand" className="navbarItem">8kadin</div>
                 </div>
                 <div className="navbarField">
-                    {this.props.cart.pads.extra || this.props.cart.pads.normal
+                    {this.props.cart.content !== null && this.props.cart.totalPrice !== 0
                         ? <Link to="/cekaut"><img alt="shoppingCartFull" className="shoppingCart" src={shoppingFull} /></Link>
                         : <img alt="shoppingCartEmpty" className="shoppingCart" src={shoppingEmpty} />
                     }

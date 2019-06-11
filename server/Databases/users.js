@@ -20,7 +20,7 @@ const addUser = async (User) => {
   user.updateOne(res, {uid})
     .then(() => console.log('Added Item'))
     .catch(err => console.error(err))
-  return uid
+  return {uid, email}
 }
 
 
@@ -41,7 +41,6 @@ const signInUser = async (User) => {
   if (suggestedUser == null ) {
     return {'error': errors.USER_DOES_NOT_EXIST}
   }
-  console.log('Suggested USer: ', suggestedUser);
   let passWordMatch = await bcrypt.compare(pwd, suggestedUser.password)
     if (passWordMatch) {
       return suggestedUser
@@ -54,7 +53,8 @@ const editUser = async (User) => {
   let uid = User.uid
   let newUser = User.user
   await user.updateOne({uid}, newUser)
-  return newUser
+  let res = await findUser({uid});
+  return res;
 }
 
 const findUser = async (uid) => {

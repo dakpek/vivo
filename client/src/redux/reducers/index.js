@@ -2,13 +2,13 @@ import { combineReducers } from 'redux';
 
 import { user } from './authentication';
 import { cart } from './cart';
-import { catalog } from './catalog';
+import { boxes } from './boxes';
 
 
 const rootReducer = combineReducers({
   user,
   cart,
-  catalog
+  boxes
 });
 
 export default rootReducer;

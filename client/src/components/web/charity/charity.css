@@ -66,10 +66,11 @@
 }
 
 .charityImg {
+    z-index: -1;
     width: 40%;
     object-fit: cover;
-    object-position: -5vw 0vh;
-    opacity: 0.6;
+    object-position: -25vw 0vh;
+    opacity: 0.7;
 }
 
 .charitySelector {

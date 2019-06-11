@@ -46,7 +46,7 @@ class SignUp2 extends Component {
         let data = Object.assign({}, this.state)
         delete data.error;
         let uid = this.props.user.uid;
-        this.props.checkout()
+        await this.props.checkout()
         await this.props.editUserAction(uid, data)
     }
     
@@ -131,8 +131,6 @@ class SignUp2 extends Component {
                         placeholder='05XX-XXX-XXXX'/>
                         <br/>
                 </div>
-
-
                     <div className="signUpFormButtons">
                             <Link
                             to='/paketsec'                                     

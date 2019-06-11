@@ -11,6 +11,7 @@ class Homepage extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            loading: true,
             addressChange: false,
             cardChange: false,
             address: {
@@ -50,10 +51,14 @@ class Homepage extends Component {
     componentWillMount() {
         console.log(this.props.user)
     }
+
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.user.data.firstName) this.setState({loading: false})
+    }
     
     render() {
 
-        if (!this.props.user.data.firstName) {
+        if (this.state.loading) {
             return <div>loading...</div>
         }
         return (

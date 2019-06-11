@@ -1,7 +1,6 @@
 
 import { actionConstants } from './action-consts';
 import axios from 'axios';
-import { object } from 'prop-types';
 
 
 
@@ -54,9 +53,10 @@ export const signUpAction = (email, password) => {
     axios.post(`${baseUrl}/signup`, {email, password})
       .then(res => {
         console.log(res.data)
-        if (typeof res.data == 'object') {
+        if (res.data.error) {
           dispatch(signUpFailure(res.data.error))
         } else {
+          console.log('RES: ', res.data)
           dispatch(signUpSuccess(res.data));
         }
       })
@@ -68,9 +68,9 @@ export const signUpAction = (email, password) => {
 };
 
 // REACTION
-const signUpSuccess = (uid) => ({
+const signUpSuccess = (res) => ({
   type: actionConstants.SIGN_UP_SUCCESS,
-  payload: uid
+  payload: res
 });
 
 const signUpStarted = () => ({
@@ -173,11 +173,16 @@ const editUserFailure = (error) => ({
 export const cartChangeAction = (cart) => {
 
   return dispatch => {
+    dispatch(cartChangeStarted());
     dispatch(cartChange(cart));
   }
 };
 
 // REACTION
+const cartChangeStarted = () => ({
+  type: actionConstants.CART_CHANGE_STARTED
+});
+
 const cartChange = (cart) => ({
   type: actionConstants.CART_CHANGE_SUCCESS,
   payload: cart
@@ -185,36 +190,36 @@ const cartChange = (cart) => ({
 
 
 
-// //-------------------------------------------------------------------       GET CATALOG
+// //-------------------------------------------------------------------       GET BOXES
 
 
 // // ACTION
-export const getCatalogAction = () => {
+export const getBoxesAction = () => {
 
   return dispatch => {
-    dispatch(getCatalogStarted());
-    axios.get(`${baseUrl}/catalog`)
+    dispatch(getBoxesStarted());
+    axios.get(`${baseUrl}/boxes`)
       .then(res => {
-        dispatch(getCatalogSuccess(res.data));
+        dispatch(getBoxesSuccess(res.data));
       })
       .catch(err => {
-        dispatch(getCatalogFailure(err.message));
+        dispatch(getBoxesFailure(err.message));
       })
   }
 };
 
 // REACTION
-const getCatalogSuccess = (res) => ({
-  type: actionConstants.GET_CATALOG_SUCCESS,
+const getBoxesSuccess = (res) => ({
+  type: actionConstants.GET_BOXES_SUCCESS,
   payload: res
 });
 
-const getCatalogStarted = () => ({
-  type: actionConstants.GET_CATALOG_STARTED
+const getBoxesStarted = () => ({
+  type: actionConstants.GET_BOXES_STARTED
 });
 
-const getCatalogFailure = (error) => ({
-  type: actionConstants.GET_CATALOG_ERROR,
+const getBoxesFailure = (error) => ({
+  type: actionConstants.GET_BOXES_ERROR,
   payload: error
 });
 

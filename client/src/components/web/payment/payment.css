@@ -1,3 +1,7 @@
+.paymentContainer {
+    z-index: 0;
+}
+
 .paymentButton {
     margin: 4vh;
     height: 5vh;

@@ -19,7 +19,7 @@ import Checkout from './components/web/checkout'
 import Homepage from './components/web/homepage'
 import Payment from './components/web/payment'
 import Charity from './components/web/charity'
-import Item from './components/simpleComponents/item'
+import Popup from './components/simpleComponents/popup'
 // import Review from './components/web/reviews';
 //------------------------------
 
@@ -38,8 +38,8 @@ import autoMergeLevel2 from  'redux-persist/lib/stateReconciler/autoMergeLevel2'
 
 const persistConfig = {
 	key: 'root',
-	storage: storage,
-	stateReconciler: autoMergeLevel2
+  storage: storage,
+  blacklist: ['boxes']
 }
 
 const persistR = persistReducer(persistConfig, rootReducer)
@@ -67,7 +67,7 @@ const App = () => (
             <Route exact path = '/profil' component={Homepage} />
             <Route exact path = '/ode' component={Payment} />
             <Route exact path = '/varolus' component={Charity} />
-            <Route exact path = '/item' component={Item} />
+            <Route exact path = '/popup' component={Popup} />
             {/* <Route exact path = '/ode' component={Review} /> */}
             {/* <Route exact path = '/uyeol' component={SignUp} />
             <Route exact path = '/iletisim' component={Contact} />

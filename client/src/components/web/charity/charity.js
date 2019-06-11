@@ -6,7 +6,7 @@ import {
     kamer, 
     morcati, 
     acev, 
-    rose,
+    charityBackground,
     gogh,
     rumi, 
     teresa, 
@@ -76,7 +76,7 @@ export default class Charity extends Component {
             <Navbar />
             <div className="charityMain">
                 <div className="charity1">
-                <img className="charityImg" alt="charityImg" src={rose} />
+                <img className="charityImg" alt="charityImg" src={charityBackground} />
                 <div className="charityBox">
                     <div className="charityHeaderBox"><div className="eight">8</div><div className="charityHeader">hepimizin</div></div>
                     <div className="charityWords">

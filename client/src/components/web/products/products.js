@@ -8,7 +8,7 @@ import Carousel from 'react-flex-carousel';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 
-import { cartChangeAction, getCatalogAction } from '../../../redux/actions/actionCreators'
+import { cartChangeAction, getBoxesAction } from '../../../redux/actions/actionCreators'
 
 import { pad1, pad2, pad3, pad4 } from '../../../assets'
 
@@ -17,6 +17,7 @@ class Products extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            loading: true,
             expansion: {
                 standards: false,
                 subscriptions: false,
@@ -32,71 +33,147 @@ class Products extends Component {
                     normal: null,
                     super: null
                 },
-                pills: "",
-            },
-            price: null
+                pills: null,
+            }
+        }
+
+    }
+
+    
+
+   
+
+    colorBox = (place, number) => {
+        if (!this.props.cart.content || this.props.cart.content == null) {
+            return false
+        }
+        let cart = this.props.cart.content;
+        
+        let pads = cart.pads;
+
+        if (pads[place] == number) {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    renderNormal = () => {
+        if (!this.props.cart.content || this.props.cart.content == null) {
+            return null
+        }
+        let cart = this.props.cart.content;
+        let normal = cart.pads.normal;
+
+        if (normal !== 0 && normal !== null) {
+            return normal + ' Normal Ped'
+        }
+    }
+
+    renderExtra = () => {
+        if (!this.props.cart.content || this.props.cart.content == null) {
+            return null
+        }
+        let cart = this.props.cart.content;
+        let extra = cart.pads.extra;
+
+        if (extra !== 0 && extra !== null) {
+            return extra + ' Super Ped'
+        }
+    }
+
+    renderDaily = () => {
+        if (!this.props.cart.content || this.props.cart.content == null) {
+            return null
+        }
+        let cart = this.props.cart.content;
+        let daily = cart.pads.daily;
+
+        if (daily !== 0 && daily !== null) {
+            return daily + ' Gunluk Ped'
+        }
+    }
+
+    calculatePrice = () => {
+        if (!this.props.cart.content || this.props.cart.content == null) {
+            return null
+        }
+        let price = this.props.cart.totalPrice.toFixed(2);
+        console.log(price)
+
+        if (price > 0 && price !== null) {
+            return price + ' TL'
         }
     }
 
 
-    initializePage = () => {
-        if (
-            this.props.cart.pads.extra !== 0 ||
-            this.props.cart.pads.normal !== 0 ||
-            this.props.cart.pads.daily !== 0 
-            ) {
-                let cart = this.props.cart.pads;
-                let selection = this.state.selection;
-                selection.pads = cart;
-                this.setState({selection})
-            }
+    findBox = () => {
+
+        let daily = this.state.selection.pads.daily;
+        let extra = this.state.selection.pads.extra;
+        let normal = this.state.selection.pads.normal;
+
+        if (daily == null || daily == 'none') daily = 0
+        if (extra == null || extra == 'none') extra = 0
+        if (normal == null || normal == 'none') normal = 0
+    
+
+        let box = this.props.boxes.list.find((el) => {
+                return (
+                    el.content.pads.daily === daily && 
+                    el.content.pads.extra === extra && 
+                    el.content.pads.normal === normal
+                    )
+            })
+        return box
     }
-
-
-
-
-
-
 
     
     handleSubmit = () => {
         console.log('form submitted')
     }
 
-    handleDaily = (event) => {
+    handleDaily = async (event) => {
         let selection = this.state.selection;
         if (event.target.id == "none") {
-            selection.pads.daily = null
+            selection.pads.daily = 0
         } else {
             let place = Number(event.target.id);
             selection.pads.daily = place;
         }
-        this.props.cartChangeAction(selection)
-        this.setState(selection)
-    }
 
-    handleNormal = (event) => {
+        this.setState(selection)
+        let box = this.findBox()
+        console.log('BOX: ', box)
+        await this.props.cartChangeAction(box)
+    }
+    
+    handleNormal = async (event) => {
         let selection = this.state.selection;
         if (event.target.id == "none") {
-            selection.pads.normal = null
+            selection.pads.normal = 0
         } else {
             let place = Number(event.target.id);
             selection.pads.normal = place;
         }
-        this.props.cartChangeAction(selection)
-        this.setState(selection)
+        await this.setState(selection)
+        let box = this.findBox()
+        console.log('BOX: ', box)
+        await this.props.cartChangeAction(box)
     }
-
-    handleExtra = (event) => {
+    
+    handleExtra = async (event) => {
         let selection = this.state.selection;
         if (event.target.id == "none") {
-            selection.pads.extra = null
+            selection.pads.extra = 0
         } else {
             let place = Number(event.target.id);
             selection.pads.extra = place;
         }
-        this.props.cartChangeAction(selection)
-        this.setState(selection)
+        await this.setState(selection)
+        let box = this.findBox()
+        console.log('BOX: ', box)
+        await this.props.cartChangeAction(box)
     }
     
     handleExpand = (event) => {
@@ -107,72 +184,13 @@ class Products extends Component {
         }
         expansion[place] = !expansion[place];
         this.setState({expansion})
-
-    }
-
-    calculatePrice = () => {
-        let daily = this.state.selection.pads.daily;
-        let extra = this.state.selection.pads.extra;
-        let normal = this.state.selection.pads.normal;
-
-        if (daily == null || daily == "none") {
-            if (extra == null || extra == "none") {
-                if (normal == null || normal == "none") {
-                    return 0
-                } else {
-                    let price = normal * 0.25 + 4 + 2
-                    return price
-                }
-            } else {
-                if (normal == null || normal == "none") {
-                    let price = extra * 0.30 + 4 + 2
-                    return price
-                } else {
-                    let price = extra * 0.30 + normal * 0.25 + 4 + 2
-                    return price
-                }
-            }
-        } else {
-            if (extra == null || extra == "none") {
-                if (normal == null || normal == "none") {
-                    let price = daily * 0.2 + 4 + 2
-                    return price
-                } else {
-                    let price = normal * 0.25 + daily * 0.2 + 4 + 2
-                    return price
-                }
-            } else {
-                if (normal == null || normal == "none") {
-                    let price = extra * 0.30 + daily * 0.2 + 4 + 2
-                    return price
-                } else {
-                    let price = extra * 0.30 + normal * 0.25 +  daily * 0.2 + 4 + 2
-                    return price
-                }
-            }
-        }
-        
-        
         
     }
 
-    calculateCharity = () => {
-        let price = this.calculatePrice()
-        if (price == null) return null;
-        return (price/10).toFixed(2) * 0.15
+    componentDidMount() {
+        this.props.getBoxesAction()
     }
 
-    async componentDidMount() {
-        await this.props.getCatalogAction()
-        this.initializePage()
-    }
-    
-    componentWillReceiveProps(nextProps) {
-        let cart = nextProps.cart;
-        let selection = this.state.selection;
-        selection.pads = cart.pads;
-        this.setState({selection})
-    }
 
     render() {
 
@@ -188,7 +206,7 @@ class Products extends Component {
                         <div 
                         id="none" 
                         className="formSelectBox" 
-                        style={this.state.selection.pads.normal == 0 || this.state.selection.pads.normal == null
+                        style={this.colorBox('normal', 0)
                         ? {"backgroundColor": "rgba(216, 58, 99, 0.9)", "color": "rgb(247, 244, 239)"} 
                         : null}
                         onClick={this.handleNormal}>
@@ -196,7 +214,7 @@ class Products extends Component {
                         <div 
                         id="8" 
                         className="formSelectBox" 
-                        style={this.state.selection.pads.normal == 8
+                        style={this.colorBox('normal', 8)
                         ? {"backgroundColor": "rgba(216, 58, 99, 0.9)", "color": "rgb(247, 244, 239)"} 
                         : null}
                         onClick={this.handleNormal}>
@@ -204,7 +222,7 @@ class Products extends Component {
                         <div 
                         id="12" 
                         className="formSelectBox" 
-                        style={this.state.selection.pads.normal == 12
+                        style={this.colorBox('normal', 12)
                         ? {"backgroundColor": "rgba(216, 58, 99, 0.9)", "color": "rgb(247, 244, 239)"} 
                         : null}
                         onClick={this.handleNormal}>
@@ -212,7 +230,7 @@ class Products extends Component {
                         <div 
                         id="16" 
                         className="formSelectBox" 
-                        style={this.state.selection.pads.normal == 16
+                        style={this.colorBox('normal', 16)
                         ? {"backgroundColor": "rgba(216, 58, 99, 0.9)", "color": "rgb(247, 244, 239)"} 
                         : null}
                         onClick={this.handleNormal}>
@@ -220,7 +238,7 @@ class Products extends Component {
                         <div 
                         id="20" 
                         className="formSelectBox" 
-                        style={this.state.selection.pads.normal == 20
+                        style={this.colorBox('normal', 20)
                         ? {"backgroundColor": "rgba(216, 58, 99, 0.9)", "color": "rgb(247, 244, 239)"} 
                         : null}
                         onClick={this.handleNormal}>
@@ -232,7 +250,7 @@ class Products extends Component {
                         <div 
                         id="none" 
                         className="formSelectBox" 
-                        style={this.state.selection.pads.extra == 0 || this.state.selection.pads.extra == null
+                        style={this.colorBox('extra', 0)
                         ? {"backgroundColor": "rgba(216, 58, 99, 0.9)", "color": "rgb(247, 244, 239)"} 
                         : null}
                         onClick={this.handleExtra}>
@@ -240,7 +258,7 @@ class Products extends Component {
                         <div 
                         id="4" 
                         className="formSelectBox" 
-                        style={this.state.selection.pads.extra == 4
+                        style={this.colorBox('extra', 4)
                         ? {"backgroundColor": "rgba(216, 58, 99, 0.9)", "color": "rgb(247, 244, 239)"} 
                         : null}
                         onClick={this.handleExtra}>
@@ -248,7 +266,7 @@ class Products extends Component {
                         <div 
                         id="8" 
                         className="formSelectBox" 
-                        style={this.state.selection.pads.extra == 8
+                        style={this.colorBox('extra', 8)
                         ? {"backgroundColor": "rgba(216, 58, 99, 0.9)", "color": "rgb(247, 244, 239)"} 
                         : null}
                         onClick={this.handleExtra}>
@@ -256,14 +274,14 @@ class Products extends Component {
                         <div 
                         id="12" 
                         className="formSelectBox" 
-                        style={this.state.selection.pads.extra == 12
+                        style={this.colorBox('extra', 12)
                         ? {"backgroundColor": "rgba(216, 58, 99, 0.9)", "color": "rgb(247, 244, 239)"} 
                         : null}
                         onClick={this.handleExtra}>
                         12</div>
                         <div 
                         id="16" className="formSelectBox" 
-                        style={this.state.selection.pads.extra == 16
+                        style={this.colorBox('extra', 16)
                         ? {"backgroundColor": "rgba(216, 58, 99, 0.9)", "color": "rgb(247, 244, 239)"} 
                         : null}
                         onClick={this.handleExtra}>
@@ -275,7 +293,7 @@ class Products extends Component {
                         <div 
                         id="none" 
                         className="formSelectBox" 
-                        style={this.state.selection.pads.daily == 0 || this.state.selection.pads.daily == null
+                        style={this.colorBox('daily',0)
                         ? {"backgroundColor": "rgba(216, 58, 99, 0.9)", "color": "rgb(247, 244, 239)"} 
                         : null}
                         onClick={this.handleDaily}>
@@ -283,7 +301,7 @@ class Products extends Component {
                         <div 
                         id="15" 
                         className="formSelectBox" 
-                        style={this.state.selection.pads.daily == 15
+                        style={this.colorBox('daily', 15)
                         ? {"backgroundColor": "rgba(216, 58, 99, 0.9)", "color": "rgb(247, 244, 239)"} 
                         : null}
                         onClick={this.handleDaily}>
@@ -291,7 +309,7 @@ class Products extends Component {
                         <div 
                         id="20" 
                         className="formSelectBox" 
-                        style={this.state.selection.pads.daily == 20
+                        style={this.colorBox('daily', 20)
                         ? {"backgroundColor": "rgba(216, 58, 99, 0.9)", "color": "rgb(247, 244, 239)"} 
                         : null}
                         onClick={this.handleDaily}>
@@ -299,7 +317,7 @@ class Products extends Component {
                         <div 
                         id="25" 
                         className="formSelectBox" 
-                        style={this.state.selection.pads.daily == 25
+                        style={this.colorBox('daily', 25)
                         ? {"backgroundColor": "rgba(216, 58, 99, 0.9)", "color": "rgb(247, 244, 239)"} 
                         : null}
                         onClick={this.handleDaily}>
@@ -307,7 +325,7 @@ class Products extends Component {
                         <div 
                         id="30" 
                         className="formSelectBox" 
-                        style={this.state.selection.pads.daily == 30
+                        style={this.colorBox('daily', 30)
                         ? {"backgroundColor": "rgba(216, 58, 99, 0.9)", "color": "rgb(247, 244, 239)"} 
                         : null}
                         onClick={this.handleDaily}>
@@ -317,38 +335,23 @@ class Products extends Component {
                     <div className="formSelectionResult">
                         <div className="formSelectionLabel">Aylik paketiniz:</div>
                         <div className="formSelectionUnit">
-                        {this.state.selection.pads.normal == null || this.state.selection.pads.normal == 0
-                            ? null
-                            : `${this.state.selection.pads.normal} Normal Ped`
-                        }
+                        {this.renderNormal()}
                         </div>
                         <div className="formSelectionUnit">
-                        {this.state.selection.pads.extra == null || this.state.selection.pads.extra == 0
-                            ? null
-                            : `${this.state.selection.pads.extra} Super Ped`
-                        }
+                        {this.renderExtra()}
                         </div>
                         <div className="formSelectionUnit">
-                        {this.state.selection.pads.daily == null || this.state.selection.pads.daily == 0
-                            ? null
-                            : `${this.state.selection.pads.daily} Gunluk Ped`
-                        } 
+                        {this.renderDaily()} 
                         </div>
                         <div className="formSelectionPrice">
                             <div className="priceItem">
-                            {
-                            (this.state.selection.pads.daily == null || this.state.selection.pads.daily == 0) &&
-                            (this.state.selection.pads.normal == null || this.state.selection.pads.normal == 0) &&
-                            (this.state.selection.pads.extra == null || this.state.selection.pads.extra == 0)
-                                ? <div></div>
-                                : <div className="total">
-                                <div className="totalSeperator"></div>
-                                {this.calculatePrice()} TL
+                                <div className="total">
+                                    <div className="totalSeperator"></div>
+                                    {this.calculatePrice()}
+                                    </div>
                                 </div>
-                            }
                             </div>
                         </div>
-                    </div>
                         <Link to="/cekaut" type="submit" className="checkout">Odemeye Gecin</Link>
                     </form>
                 </div>
@@ -453,8 +456,8 @@ class Products extends Component {
     }
 }
 
-const mapStateToProps = ({ cart }) => {
-    return { cart }
+const mapStateToProps = ({ cart, boxes }) => {
+    return { cart, boxes }
   }
 
-export default connect(mapStateToProps, { cartChangeAction, getCatalogAction })(Products)
+export default connect(mapStateToProps, { cartChangeAction, getBoxesAction })(Products)

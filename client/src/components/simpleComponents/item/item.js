@@ -12,13 +12,6 @@ class Item extends Component {
         }
     }
 
-
-    deleteItem = () => {
-        let cart = this.props.cart;
-        cart.pads[this.props.cartItem] = 0
-        this.props.cartChangeAction(cart)
-    }
-
     render() {
         return (
             <div className="outercontainer">
@@ -31,7 +24,7 @@ class Item extends Component {
                 </div>
                 <div className="itemRight">
                     <div className="itemPrice">{this.props.price} TL</div>
-                    <div onClick={this.deleteItem} className="itemCancel"><img className="x" alt="x" src={x}/></div>
+                    <div onClick={this.props.deleteItem} className="itemCancel"><img className="x" alt="x" src={x}/></div>
                 </div>
                 </div>
             </div>

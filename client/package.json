@@ -11,8 +11,10 @@
     "grommet-icons": "^4.2.0",
     "moment": "^2.24.0",
     "react": "^16.8.6",
+    "react-credit-card-input": "^1.1.5",
     "react-dom": "^16.8.6",
     "react-flex-carousel": "^1.1.0",
+    "react-interval-rerender": "^1.0.1",
     "react-redux": "^7.0.3",
     "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8",
@@ -24,7 +26,7 @@
     "redux-thunk": "^2.3.0",
     "serve": "^11.0.0",
     "sort-keys": "^3.0.0",
-    "styled-components": "^4.2.0",
+    "styled-components": "^4.2.1",
     "v3": "0.0.0"
   },
   "scripts": {

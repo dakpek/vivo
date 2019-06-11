@@ -36,7 +36,10 @@ export const user = (state = {loading: false, error: false, uid: "", data: {}}, 
       ...state,
       loading: false,
       error: false,
-      uid: action.payload,
+      uid: action.payload.uid,
+      data: {
+        email: action.payload.email
+      }
     }
   break;
   case actionConstants.SIGN_UP_ERROR:

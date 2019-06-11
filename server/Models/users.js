@@ -10,11 +10,22 @@ const Users = new mongoose.Schema({
       country: String,
       zipCode: Number,
     },
+    billingInfo: {
+      firstName: String,
+      lastName: String,
+      address: {
+        address1: String,
+        address2: String,
+        city: String,
+        county: String,
+        country: String,
+        zipCode: Number,
+      }
+    },
     card: {
+      cardUserKey: String,
       token: String,
       type: String,
-      ccv: Number,
-      expiration: Date,
       last4: Number,
     },
     email: String,
@@ -36,6 +47,7 @@ const Users = new mongoose.Schema({
       },
       pills: Number
     }
-  })
+  },
+  { typeKey: '$type' })
   
 module.exports = mongoose.model('Users', Users);
