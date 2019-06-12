@@ -1,4 +1,4 @@
-const iyzipay = require('../IyziPay/iyzipay')
+const iyzipay = require('../Iyzipay/iyzipay')
 const user = require('../Databases/users')
 
 const test = async (ctx, next) => {
